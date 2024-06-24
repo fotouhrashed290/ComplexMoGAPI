@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoGAPI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="left-section">
+        <h1>MoGAPI</h1>
+        <div class="questions">
+            <h2>Questions</h2>
+            <table id="quizTable">
+                <tr>
+                <tr>
+                    <td colspan="2"><strong>SAMPLE PREPARATION</strong></td>
+                </tr>
+                    <td>1 - Collection:</td>
+                    <td>
+                        <select name="question1" onchange="updateLayerVisibility(this.value, 1)">
+                            <option value="none"></option>
+                            <option value="3">In-line</option>
+                            <option value="2">On-line or at-line</option>
+                            <option value="1">Off-line</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2 - Preservation:</td>
+                    <td>
+                        <select name="question2" onchange="updateLayerVisibility(this.value, 2)">
+                            <option value="none"></option>
+                            <option value="3">None</option>
+                            <option value="2">Chemical or physical</option>
+                            <option value="1">Physico-chemical</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3 - Transport:</td>
+                    <td>
+                        <select name="question3" onchange="updateLayerVisibility(this.value, 3)">
+                            <option value="none"></option>
+                            <option value="3">None</option>
+                            <option value="2">Required</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4 - Storage:</td>
+                    <td>
+                        <select name="question4" onchange="updateLayerVisibility(this.value, 4)">
+                            <option value="none"></option>
+                            <option value="3">None</option>
+                            <option value="2">Under normal conditions</option>
+                            <option value="1">Under special conditions</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5 - Type of method:</td>
+                    <td>
+                        <select name="question5" onchange="updateLayerVisibility(this.value, 5)">
+                            <option value="none"></option>
+                            <option value="3">No sample preparation</option>
+                            <option value="2">Simple procedures, e.g., filtration, decantation</option>
+                            <option value="1">Extraction required</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6 - Scale of extraction:</td>
+                    <td>
+                        <select name="question6" onchange="updateLayerVisibility(this.value, 6)">
+                            <option value="none"></option>
+                            <option value="3">Nano-extraction</option>
+                            <option value="2">Micro-extraction</option>
+                            <option value="1">Macro-extraction</option>
+                            <option value="0">Not applicable</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7 - Solvents/reagents used:</td>
+                    <td>
+                        <select name="question7" onchange="updateLayerVisibility(this.value, 7)">
+                            <option value="none"></option>
+                            <option value="3">Solvent-free methods</option>
+                            <option value="2">Green solvents/reagents used</option>
+                            <option value="1">Non-green solvents/reagents used</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8 - Additional treatment:</td>
+                    <td>
+                        <select name="question8" onchange="updateLayerVisibility(this.value, 8)">
+                            <option value="none"></option>
+                            <option value="3">None</option>
+                            <option value="2">Simple treatments (clean up, solvent removal, etc.)</option>
+                            <option value="1">Advanced treatments (derivatization, mineralization, etc.)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>REAGENT AND SOLVENTS</strong></td>
+                </tr>
+                <tr>
+                    <td>9 - Amount:</td>
+                    <td>
+                        <select name="question9" onchange="updateLayerVisibility(this.value, 9)">
+                            <option value="none"></option>
+                            <option value="3">&lt; 10 mL (&lt; 10 g)</option>
+                            <option value="2">10–100 mL (10–100 g)</option>
+                            <option value="1">&gt; 100 mL (&gt; 100 g)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10 - Health hazard:</td>
+                    <td>
+                        <select name="question10" onchange="updateLayerVisibility(this.value, 10)">
+                            <option value="none"></option>
+                            <option value="3">Slightly toxic, slight irritant; NFPA health hazard score = 0 or 1</option>
+                            <option value="2">Moderately toxic; could cause temporary incapacitation; NFPA = 2 or 3</option>
+                            <option value="1">Serious injury on short-term exposure; known or suspected small animal carcinogen; NFPA = 4</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11 - Safety hazard:</td>
+                    <td>
+                        <select name="question11" onchange="updateLayerVisibility(this.value, 11)">
+                            <option value="none"></option>
+                            <option value="3">Highest NFPA flammability or instability score of 0 or 1. No special hazards</option>
+                            <option value="2">Highest NFPA flammability or instability score of 2 or 3, or a special hazard is used</option>
+                            <option value="1">Highest NFPA flammability or instability score of 4</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong>INSTRUMENTATION</strong></td>
+                </tr>
+                <tr>
+                    <td>12 - Energy:</td>
+                    <td>
+                        <select name="question12" onchange="updateLayerVisibility(this.value, 12)">
+                            <option value="none"></option>
+                            <option value="3">&le;0.1 kWh per sample</option>
+                            <option value="2">&le;1.5 kWh per sample</option>
+                            <option value="1">&gt; 1.5 kWh per sample</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13 - Occupational hazard:</td>
+                    <td>
+                        <select name="question13" onchange="updateLayerVisibility(this.value, 13)">
+                            <option value="none"></option>
+                            <option value="3">Hermetic sealing of analytical process</option>
+                            <option value="1">Emission of vapors to the atmosphere</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14 - Waste:</td>
+                    <td>
+                        <select name="question14" onchange="updateLayerVisibility(this.value, 14)">
+                            <option value="none"></option>
+                            <option value="3">&lt; 1 mL (&lt; 1 g)</option>
+                            <option value="2">1–10 mL (1–10 g)</option>
+                            <option value="1">&gt; 10 mL (&gt; 10 g)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15 - Waste treatment:</td>
+                    <td>
+                        <select name="question15" onchange="updateLayerVisibility(this.value, 15)">
+                            <option value="none"></option>
+                            <option value="3">Recycling</option>
+                            <option value="2">Degradation, passivation</option>
+                            <option value="1">No treatment</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16 - QUANTIFICATION:</td>
+                    <td>
+                        <select name="question16" onchange="updateLayerVisibility(this.value, 16)">
+                            <option value="none"></option>
+                            <option value="5">Yes</option>
+                            <option value="1">No</option>
+                        </select>
+                    </td>
+                </tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="frame">
+         <img src="bar/bar_28.png" alt="Bar" class="bar bar_28">
+         <img src="bar/bar_30.png" alt="Bar" class="bar bar_30">
+         <img src="bar/bar_32.png" alt="Bar" class="bar bar_32">
+         <img src="bar/bar_34.png" alt="Bar" class="bar bar_34">
+         <img src="bar/bar_36.png" alt="Bar" class="bar bar_36">
+         <img src="bar/bar_38.png" alt="Bar" class="bar bar_38">
+         <img src="bar/bar_40.png" alt="Bar" class="bar bar_40">
+         <img src="bar/bar_42.png" alt="Bar" class="bar bar_42">
+         <img src="bar/bar_44.png" alt="Bar" class="bar bar_44">
+         <img src="bar/bar_46.png" alt="Bar" class="bar bar_46">
+         <img src="bar/bar_48.png" alt="Bar" class="bar bar_48">
+         <img src="bar/bar_49.png" alt="Bar" class="bar bar_49">
+         <img src="bar/bar_50.png" alt="Bar" class="bar bar_50">
+         <img src="bar/bar_52.png" alt="Bar" class="bar bar_52">
+         <img src="bar/bar_54.png" alt="Bar" class="bar bar_54">
+         <img src="bar/bar_56.png" alt="Bar" class="bar bar_56">
+         <img src="bar/bar_58.png" alt="Bar" class="bar bar_58">
+         <img src="bar/bar_60.png" alt="Bar" class="bar bar_60">
+         <img src="bar/bar_62.png" alt="Bar" class="bar bar_62">
+         <img src="bar/bar_64.png" alt="Bar" class="bar bar_64">
+         <img src="bar/bar_66.png" alt="Bar" class="bar bar_66">
+         <img src="bar/bar_68.png" alt="Bar" class="bar bar_68">
+         <img src="bar/bar_70.png" alt="Bar" class="bar bar_70">
+         <img src="bar/bar_72.png" alt="Bar" class="bar bar_72">
+         <img src="bar/bar_74.png" alt="Bar" class="bar bar_74">
+         <img src="bar/bar_75.png" alt="Bar" class="bar bar_75">
+         <img src="bar/bar_76.png" alt="Bar" class="bar bar_76">
+         <img src="bar/bar_78.png" alt="Bar" class="bar bar_78">
+         <img src="bar/bar_80.png" alt="Bar" class="bar bar_80">
+         <img src="bar/bar_82.png" alt="Bar" class="bar bar_82">
+         <img src="bar/bar_84.png" alt="Bar" class="bar bar_84">
+         <img src="bar/bar_86.png" alt="Bar" class="bar bar_86">
+         <img src="bar/bar_88.png" alt="Bar" class="bar bar_88">
+         <img src="bar/bar_90.png" alt="Bar" class="bar bar_90">
+         <img src="bar/bar_92.png" alt="Bar" class="bar bar_92">
+         <img src="bar/bar_94.png" alt="Bar" class="bar bar_94">
+         <img src="bar/bar_96.png" alt="Bar" class="bar bar_96">
+         <img src="bar/bar_98.png" alt="Bar" class="bar bar_98">
+         <img src="bar/bar_99.png" alt="Bar" class="bar bar_98">
+         <img src="bar/bar_100.png" alt="Bar" class="bar bar_100">
+        <img src="g1.png" alt="G1" class="layer g1">
+        <img src="g2.png" alt="G2" class="layer g2">
+        <img src="g3.png" alt="G3" class="layer g3">
+        <img src="g4.png" alt="G4" class="layer g4">
+        <img src="g5.png" alt="G5" class="layer g5">
+        <img src="g6.png" alt="G6" class="layer g6">
+        <img src="g7.png" alt="G7" class="layer g7">
+        <img src="g8.png" alt="g8" class="layer g8">
+        <img src="g9.png" alt="G9" class="layer g9">
+        <img src="g10.png" alt="G10" class="layer g10">
+        <img src="g11.png" alt="G11" class="layer g11">
+        <img src="g12.png" alt="G12" class="layer g12">
+        <img src="g13.png" alt="G13" class="layer g13">
+        <img src="g14.png" alt="G14" class="layer g14">
+        <img src="g15.png" alt="g15" class="layer g15">
+        <img src="y1.png" alt="y1" class="layer yy1">
+        <img src="y2.png" alt="y2" class="layer yy2">
+        <img src="y3.png" alt="y3" class="layer yy3">
+        <img src="y4.png" alt="y4" class="layer yy4">
+        <img src="y5.png" alt="y5" class="layer yy5">
+        <img src="y6.png" alt="y6" class="layer yy6">
+        <img src="y7.png" alt="y7" class="layer yy7">
+        <img src="y8.png" alt="y8" class="layer yy8">
+        <img src="y9.png" alt="y9" class="layer yy9">
+        <img src="y10.png" alt="y10" class="layer yy10">
+        <img src="y11.png" alt="y11" class="layer yy11">
+        <img src="y12.png" alt="y12" class="layer yy12">
+        <img src="y13.png" alt="y13" class="layer yy13">
+        <img src="y14.png" alt="y14" class="layer yy14">
+        <img src="y15.png" alt="y15" class="layer yy15">
+       	<img src="r1.png" alt="r1" class="layer rr1">
+        <img src="r2.png" alt="r2" class="layer rr2">
+        <img src="r3.png" alt="r3" class="layer rr3">
+        <img src="r4.png" alt="r4" class="layer rr4">
+        <img src="r5.png" alt="r5" class="layer rr5">
+        <img src="r6.png" alt="r6" class="layer rr6">
+        <img src="r7.png" alt="r7" class="layer rr7">
+        <img src="r8.png" alt="r8" class="layer rr8">
+        <img src="r9.png" alt="r9" class="layer rr9">
+        <img src="r10.png" alt="r10" class="layer rr10">
+        <img src="r11.png" alt="r11" class="layer rr11">
+        <img src="r12.png" alt="r12" class="layer rr12">
+        <img src="r13.png" alt="r13" class="layer rr13">
+        <img src="r14.png" alt="r14" class="layer rr14">
+        <img src="r15.png" alt="r15" class="layer rr15">
+        <img src="g16.png" alt="g16" class="layer g16">
+    <img src="borders.png" alt="Base Image" class="base-image">
+        <div class="circle" id="pointsCircle">0</div>
+        <div class="circle efactor-circle hidden" id="efactorCircle">0</div> <!-- Ensure this is included -->
+    </div>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
